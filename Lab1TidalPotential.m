@@ -55,7 +55,10 @@ plot(-90:5:90,V22)
 
 % b) Ll
 c = 0;
-for Ll = -3600:30:3600
+V20 = 0;
+V21 = 0;
+V22 = 0;
+for Ll = -360:30:360
     c = c+1;
     phi = 0;
     delta = 0;
@@ -63,14 +66,14 @@ for Ll = -3600:30:3600
 end
 
 figure()
-plot(-3600:30:3600,V20)
+plot(-360:30:360, V20)
 title('Potential Componants at Varying Ll for Moon')
 xlabel('Phi (deg)')
 ylabel('Potential V (?)')
 grid on
 hold on 
-plot(-3600:30:3600,V21)
-plot(-3600:30:3600,V22)
+plot(-360:30:360,V21)
+plot(-360:30:360,V22)
 
 % c) Ll
 c = 0;
@@ -93,3 +96,19 @@ grid on
 hold on 
 plot(-30:2:30,V21)
 plot(-30:2:30,V22)
+
+%% Part 2
+clc
+clear
+close all
+c = 0;
+for t = 1:0.5:168
+    c = c+1;
+   h(c) = HeightWaterSeattle(t,'SeattleConstituents.csv');
+end
+
+plot(h)
+grid on
+title('Height of water level at Seattle for 2019')
+xlabel('t (hours)')
+ylabel('Height (m)');
