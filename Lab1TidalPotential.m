@@ -34,6 +34,62 @@ grid on
 
 
 % 3
+% a) Phi
+c = 0;
+for phi = -90:5:90
+    c = c+1;
+    Ll = 0;
+    delta = 0;
+    [V20(c),V21(c),V22(c)] = TidalPotentialComponants(Mm, dm, phi,delta,Ll); 
+end
 
+figure()
+plot(-90:5:90,V20)
+title('Potential Componants at Varying Phi for Moon')
+xlabel('Phi (deg)')
+ylabel('Potential V (?)')
+grid on
+hold on 
+plot(-90:5:90,V21)
+plot(-90:5:90,V22)
 
+% b) Ll
+c = 0;
+for Ll = -3600:30:3600
+    c = c+1;
+    phi = 0;
+    delta = 0;
+    [V20(c),V21(c),V22(c)] = TidalPotentialComponants(Mm, dm, phi,delta,Ll); 
+end
 
+figure()
+plot(-3600:30:3600,V20)
+title('Potential Componants at Varying Ll for Moon')
+xlabel('Phi (deg)')
+ylabel('Potential V (?)')
+grid on
+hold on 
+plot(-3600:30:3600,V21)
+plot(-3600:30:3600,V22)
+
+% c) Ll
+c = 0;
+V20 = 0;
+V21 = 0;
+V22 = 0;
+for delta = -30:2:30
+    c = c+1;
+    phi = 0;
+    Ll = 0;
+    [V20(c),V21(c),V22(c)] = TidalPotentialComponants(Mm, dm, phi,delta,Ll); 
+end
+
+figure()
+plot(-30:2:30,V20)
+title('Potential Componants at Varying Delta for Moon')
+xlabel('Phi (deg)')
+ylabel('Potential V (?)')
+grid on
+hold on 
+plot(-30:2:30,V21)
+plot(-30:2:30,V22)
