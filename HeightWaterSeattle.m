@@ -3,7 +3,7 @@ function [Ht] = HeightWaterSeattle(t,filename)
 % findin the harmonic constituents
 % Load the csv
 C = csvread(filename);
-H0 = 2.024; % From tidesandcurrents (MSL-MLLW)
+H0 = -2.024; % From tidesandcurrents (MSL-MLLW)
 
 E = 0;
 
