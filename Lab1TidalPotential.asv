@@ -154,7 +154,7 @@ title('Height of water level at Seattle for 2019')
 xlabel('t (days)')
 ylabel('Height (m)');
 
-range_30 = max(h_30)-min(h_30);
+range_month = max(h_30)-min(h_30);
 
 %YEAR
 for t = 0:1:24*365
@@ -168,17 +168,15 @@ title('Height of water level at Seattle for 2019')
 xlabel('t (hours)')
 ylabel('Height (m)');
 
-range_360 = max(h_360)-min(h_360);
+range_year = max(h_360)-min(h_360);
 Seattle_LLWLT = min(h_360);
 Seattle_HHWLT = max(h_360);
 
 %------------- Statistics
 %Fig1
-fprintf('Statistics for first 50 Hrs: \n\tRange: \t%f\n\tMean:\t%f\n\tLLWLT:\t%f\n\tHHWLT: \t%f \n',range_50, mean(h_50), min(h_50), max(h_50))
+fprintf('Statistics for first 50 Hrs:\n\tRange: %f to %f\n\tMean:%f\n\tLLWLT:%f\n\tHHWLT%f\n',range_50, mean(h), min(h), max(h))
 %Fig2
-fprintf('Statistics for first 30 Days:\n\tRange: \t%f\n\tMean:%f\n\tLLWLT:\t%f\n\tHHWLT: \t%f  \n',range_30, mean(h_30), min(h_30), max(h_30))
-%Fig3
-fprintf('Statistics for the full year:\n\tRange: \t%f\n\tMean:\t%f\n\tLLWLT:\t%f\n\tHHWLT: \t%f \n',range_360, mean(h_360), min(h_360), max(h_360))
+fprintf('Statistics for first 30 Days:\n\tRange: %f to %f\n\tMean:%f\n\tLLWLT:%f\n\tHHWLT%f\n',range_30, mean(h_30), min(h_30), max(h))
 
 
 
