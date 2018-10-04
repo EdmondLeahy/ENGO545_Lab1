@@ -131,7 +131,7 @@ c = 0;
 %50HR
 for t = 0:1:50
     c = c+1;
-    h_50(c) = HeightWaterSeattle(t,'SeattleConstituents.csv');
+    h_50(c) = HeightWaterSeattle(t,'Harmonic_Constituents.csv');
 end
 figure()
 plot(h_50)
@@ -145,7 +145,7 @@ range_50 = max(h_50)-min(h_50);
 %MONTH
 for t = 0:1:24*30
     c = c+1;
-   h_30(c) = HeightWaterSeattle(t,'SeattleConstituents.csv');
+   h_30(c) = HeightWaterSeattle(t,'Harmonic_Constituents.csv');
 end
 figure()
 plot(h_30)
@@ -159,7 +159,7 @@ range_30 = max(h_30)-min(h_30);
 %YEAR
 for t = 0:1:24*365
     c = c+1;
-   h_360(c) = HeightWaterSeattle(t,'SeattleConstituents.csv');
+   h_360(c) = HeightWaterSeattle(t,'Harmonic_Constituents.csv');
 end
 figure()
 plot(h_360)
@@ -171,6 +171,18 @@ ylabel('Height (m)');
 range_360 = max(h_360)-min(h_360);
 Seattle_LLWLT = min(h_360);
 Seattle_HHWLT = max(h_360);
+
+%-------------Bar chart
+C = csvread('Harmonic_Constituents.csv');
+
+sorted_data = sort(C(:,3), 'descend');
+sorted_data(5,1) = sum(sorted_data(5:end));
+figure()
+bar(sorted_data(1:5))
+
+
+%------------- F Number
+F = TidalRegime('Harmonic_Constituents.csv');
 
 %------------- Statistics
 %Fig1

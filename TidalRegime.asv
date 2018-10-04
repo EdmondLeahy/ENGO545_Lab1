@@ -1,0 +1,16 @@
+function [Ht] = TidalRegime(t,filename)
+%Find the height of the water in seattle at specific time, by 
+% findin the harmonic constituents
+% Load the csv
+C = csvread(filename);
+H0 = -2.024; % From tidesandcurrents (MSL-MLLW)
+
+
+K1 = C(4,5)*C(4,2);
+O1 = C(6,5)*C(6,2);
+M2 = C(1,5)*C(1,2);
+S2 = C(2,5)*C(2,2);
+
+F = (K1
+
+end
